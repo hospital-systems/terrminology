@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    FHIRValueSets (0.0.1)
+    Terrminology (0.0.1)
       pg
       sequel
       uuid
@@ -41,7 +41,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  FHIRValueSets!
+  Terrminology!
   bundler (~> 1.3)
   nokogiri
   pg

@@ -1,4 +1,4 @@
-require 'fhir_value_sets'
+require 'terrminology'
 require 'sequel'
 require 'yaml'
 

@@ -4,6 +4,6 @@ Sequel.migration do
   end
 
   down do
-    execute_ddl 'drop schema fhir_value_sets cascade;'
+    execute_ddl 'drop schema terrminology cascade;'
   end
 end

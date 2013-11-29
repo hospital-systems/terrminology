@@ -1,4 +1,4 @@
-module FHIRValueSets
+module Terrminology
   class Facade
     attr_reader :db
 

@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'fhir_value_sets/version'
+require 'terrminology/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'FHIRValueSets'
-  spec.version       = FHIRValueSets::VERSION
+  spec.name          = 'Terrminology'
+  spec.version       = Terrminology::VERSION
   spec.authors       = ['dmitry-n']
   spec.email         = ['nechayevdv@gmail.com']
   spec.description   = %q{FHIR value sets}

@@ -1,4 +1,4 @@
-module FHIRValueSets
+module Terrminology
   class BaseModel
     #TODO: decide if coercion mode should be set to strict
     include Virtus.model

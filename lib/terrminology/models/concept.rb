@@ -1,4 +1,4 @@
-module FHIRValueSets
+module Terrminology
   class Concept < BaseModel
     attribute :concept_id, String
     attribute :define_id,  String

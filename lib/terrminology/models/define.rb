@@ -1,4 +1,4 @@
-module FHIRValueSets
+module Terrminology
   class Define < BaseModel
     attribute :define_id,       String
     attribute :value_set_id,    String

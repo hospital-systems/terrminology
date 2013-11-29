@@ -1,4 +1,4 @@
-module FHIRValueSets
+module Terrminology
   class ConceptRepository < BaseRepository
 
   end

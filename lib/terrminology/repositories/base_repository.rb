@@ -1,4 +1,4 @@
-module FHIRValueSets
+module Terrminology
   class BaseRepository
     attr_reader :db
 
@@ -15,7 +15,7 @@ module FHIRValueSets
     end
 
     def entity
-      @entity ||= FHIRValueSets.const_get(entity_name)
+      @entity ||= Terrminology.const_get(entity_name)
     end
 
     def relation
@@ -23,7 +23,7 @@ module FHIRValueSets
     end
 
     def get_relation(table_name)
-      @db[:"fhir_value_sets__#{table_name}"]
+      @db[:"terrminology__#{table_name}"]
     end
 
     def all

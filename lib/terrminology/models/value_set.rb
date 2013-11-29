@@ -1,4 +1,4 @@
-module FHIRValueSets
+module Terrminology
   class ValueSet < BaseModel
     attribute :value_set_id, String
     attribute :identifier,   String         #0..1

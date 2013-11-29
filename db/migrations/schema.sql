@@ -1,13 +1,13 @@
---db:fhir_value_sets
+--db:terrminology
 --{{{
-    -- drop table fhir_value_sets_schema_migrations;
-    drop schema IF EXISTS fhir_value_sets cascade;
-    create schema fhir_value_sets;
+    -- drop table terrminology_schema_migrations;
+    drop schema IF EXISTS terrminology cascade;
+    create schema terrminology;
     create extension IF NOT EXISTS "uuid-ossp";
     drop type if exists value_set_status;
     create type value_set_status as enum ('draft', 'active', 'retired');
 
-    create table fhir_value_sets.value_sets (
+    create table terrminology.value_sets (
       value_set_id   uuid primary key default uuid_generate_v4(),
       identifier     varchar,
       version        varchar,
@@ -21,7 +21,7 @@
       date           timestamp
     );
 
-    create table fhir_value_sets.defines (
+    create table terrminology.defines (
       define_id      uuid primary key default uuid_generate_v4(),
       value_set_id   uuid not null,
       system         varchar not null,
@@ -29,7 +29,7 @@
       case_sensitive boolean
     );
 
-    create table fhir_value_sets.concepts (
+    create table terrminology.concepts (
       concept_id     uuid primary key default uuid_generate_v4(),
       define_id      uuid not null,
       code           varchar not null,

@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'uuid'
 
-describe FHIRValueSets do
+describe Terrminology do
   subject { described_class }
   around(:each) do |example|
     DB.transaction do # BEGIN
@@ -36,7 +36,7 @@ describe FHIRValueSets do
 
 
   example do
-    sys = FHIRValueSets::Facade.new(DB)
+    sys = Terrminology::Facade.new(DB)
 
     sys.clear_value_sets!
 
@@ -70,7 +70,7 @@ describe FHIRValueSets do
   end
 
   #example do
-  #  sys = FHIRValueSets::Facade.new(DB)
+  #  sys = Terrminology::Facade.new(DB)
   #  sys.clear_users!
   #
   #  user = sys.create_user(name: 'nicola', password: '123456')
