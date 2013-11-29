@@ -1,5 +1,9 @@
 module Terrminology
   class Facade
+    def u
+      Utils
+    end
+
     attr_reader :db
 
     def initialize(db)
@@ -16,8 +20,27 @@ module Terrminology
       value_set_repository.all
     end
 
-    def create_value_set(value_set_attributes)
-      value_set_repository.create(value_set_attributes)
+    def create_value_set(attrs)
+      value_set_attributes = u.normalize_attributes(attrs)
+
+      value_set_attributes.delete('resource_type')
+      value_set_attributes.delete('text')
+      value_set_attributes.delete('telecom')
+      define = value_set_attributes.delete('define')
+
+      value_set_repository.create(value_set_attributes).tap do |vs|
+        define['value_set_id'] = vs.identity
+        concepts = define.delete('concept')
+        df = define_repository.create(define)
+
+        concepts = concepts.map do |concept|
+          concept_repository.create(concept.merge(define_id: df.identity))
+        end
+      end
+    end
+
+    def find_valueset(id_or_identifier)
+      value_set_repository.find(id_or_identifier)
     end
 
     def clear_value_sets!
@@ -48,8 +71,8 @@ module Terrminology
 
     private :concept_repository
 
-    def concepts
-      concept_repository.all
+    def concepts(id_or_identifier)
+      concept_repository.search(id_or_identifier)
     end
 
     def create_concept(concept_attributes)

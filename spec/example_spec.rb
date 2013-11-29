@@ -35,38 +35,33 @@ describe Terrminology do
   #}
 
 
+  def rfile(name)
+    File.read(File.dirname(__FILE__) + "/fixtures/#{name}")
+  end
+
   example do
     sys = Terrminology::Facade.new(DB)
 
     sys.clear_value_sets!
 
-    value_set = sys.create_value_set(
-        identifier:   'http://hl7.org/fhir/v3/vs/AdministrativeGender',
-        name:         'v3 Code System AdministrativeGender',
-        publisher:    'HL7, Inc',
-        description:  'The gender of a person used for adminstrative purposes (as opposed to clinical gender)',
-        status:       'active',
-        date:         '2013-08-06'
-    )
+    vs_def = JSON.parse(rfile('valueset-status.json'))
 
-    sys.value_sets.should include(value_set)
+    sys.value_sets.find {|vs|
+      vs.identifier == 'http://hl7.org/fhir/vs/valueset-status'
+    }.should be_nil
 
-    define = sys.create_define(
-        value_set_id: value_set.identity,
-        system:             'http://hl7.org/fhir/v3/AdministrativeGender',
-        case_sensitive:     true
-    )
+    vs = sys.create_value_set(vs_def)
 
-    sys.defines.should include(define)
+    sys.value_sets.find {|vs|
+      vs.identifier == 'http://hl7.org/fhir/vs/valueset-status'
+    }.should_not be_nil
 
-    concept = sys.create_concept(
-        define_id: define.identity,
-        code:            'UN',
-        display:         'Undifferentiated',
-        definition:      'The gender of a person could not be uniquely defined as male or female, such as hermaphrodite.'
-    )
+    sys.find_valueset(vs.identifier).identifier.should == vs.identifier
 
-    sys.concepts.should include(concept)
+    sys.concepts(vs.identifier).find{|c| c.code == 'active'}.should_not be_nil
+    sys.concepts(vs.identity).find{|c| c.code == 'active'}.should_not be_nil
+
+    sys.concepts(vs.identity)
   end
 
   #example do

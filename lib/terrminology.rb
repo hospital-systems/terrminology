@@ -2,6 +2,7 @@ require 'terrminology/version'
 require 'virtus'
 
 module Terrminology
+  autoload :Utils, 'terrminology/utils'
   autoload :Migrator, 'terrminology/migrator'
   autoload :Facade, 'terrminology/facade'
 
