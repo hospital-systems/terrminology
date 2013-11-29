@@ -6,5 +6,6 @@ gemfile:
   - Gemfile
 before_script:
   - psql -c 'create database terrminology;' -U postgres
-  - ruby migrate.rb
+  - createuser -s $USER
+  - bundle exec sequel -m db/migrations postgres:///terrminology
 script: rspec spec
