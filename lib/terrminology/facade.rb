@@ -39,7 +39,7 @@ module Terrminology
       end
     end
 
-    def find_valueset(id_or_identifier)
+    def find_value_set(id_or_identifier)
       value_set_repository.find(id_or_identifier)
     end
 
@@ -71,8 +71,8 @@ module Terrminology
 
     private :concept_repository
 
-    def concepts(id_or_identifier)
-      concept_repository.search(id_or_identifier)
+    def concepts(id_or_identifier, concepts_filter = nil)
+      concept_repository.search(id_or_identifier, concepts_filter)
     end
 
     def create_concept(concept_attributes)
@@ -83,69 +83,21 @@ module Terrminology
       concept_repository.destroy_all
     end
 
-    #def user_repository
-    #  UserRepository.new(db)
-    #end
-    #
-    #private :user_repository
-    #
-    #def users(query = {})
-    #  user_repository.all
-    #end
-    #
-    #def create_user(user_attributes)
-    #  user_repository.create(user_attributes)
-    #end
-    #
-    #def clear_users!
-    #  user_repository.destroy_all
-    #end
-    #
-    #def permission_repository
-    #  PermissionRepository.new(db)
-    #end
-    #
-    #private :permission_repository
-    #
-    #def create_permission(code, display_name)
-    #  permission_repository.create(code: code.to_s, display_name: display_name)
-    #end
-    #
-    #def permissions(query={})
-    #  permission_repository.all
-    #end
-    #
-    #def role_repository
-    #  RoleRepository.new(db)
-    #end
-    #
-    #def roles(query={})
-    #  role_repository.all
-    #end
-    #
-    #def create_role(display_name, description = nil)
-    #  role_repository.create(display_name: display_name,
-    #                         description: description)
-    #end
-    #
-    #def role_permissions(role_id, fileter={})
-    #  permission_repository.role_permissions(role_id, fileter)
-    #end
-    #
-    #def grant_permission(role_id, permission_id)
-    #  role_repository.associate_permission(role_id, permission_id)
-    #end
-    #
-    #def assign_role(user_id, role_id)
-    #  user_repository.assign_role(user_id, role_id)
-    #end
-    #
-    #def user_roles(user_id, fileter = {})
-    #  role_repository.user_roles(user_id, fileter)
-    #end
-    #
-    #def allowed?(user_id, permission_name_or_id)
-    #  user_repository.has_permission?(user_id, permission_name_or_id)
-    #end
+    def add_concept(id_or_identifier, concept_attributes)
+      #TODO: accept an array of hashes
+      value_set = find_value_set(id_or_identifier)
+      define    = find_define(value_set.identity)
+      create_concept(concept_attributes.merge(define_id: define.identity))
+    end
+
+    def remove_concept(concept_id)
+      concept_repository.destroy(concept_id)
+    end
+
+    def find_define(value_set_id)
+      define_repository.find(value_set_id)
+    end
+
+    private :find_define
   end
 end
