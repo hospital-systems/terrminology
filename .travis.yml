@@ -7,4 +7,4 @@ gemfile:
 before_script:
   - psql -c 'create database terrminology;' -U travis -d postgres
   - bundle exec sequel -m db/migrations postgres:///terrminology
-script: rspec spec
+script: bundle exec rspec spec
