@@ -15,7 +15,7 @@ describe Terrminology do
   end
 
   example do
-    sys = Terrminology::Facade.new(DB)
+    sys = Terrminology.api(DB)
 
     sys.clear_value_sets!
 
@@ -33,13 +33,12 @@ describe Terrminology do
     sys.concepts(vs.identifier).find{|c| c.code == 'active'}.should_not be_nil
     sys.concepts(vs.identity).find{|c| c.code == 'active'}.should_not be_nil
 
-    sys.concepts(vs.identifier, code: 'active')
-    .first.should == sys.concepts(vs.identifier).find{|c| c.code == 'active'}
+    sys.concepts(vs.identifier, code: 'active').first.code.should == 'active'
 
-    sys.concepts(vs.identity, code: 'active')
-    .first.should == sys.concepts(vs.identity).find{|c| c.code == 'active'}
+    sys.concepts(vs.identity, code: 'active').first.code.should == 'active'
 
     attrs = { code: 'reactivated', display: 'Reactivated', definition: 'Reactivated'}
+
     sys.concepts(vs.identifier, attrs).should be_empty
     concept = sys.add_concept(vs.identifier, attrs)
     sys.concepts(vs.identifier, attrs).should_not be_empty

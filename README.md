@@ -17,7 +17,7 @@ CTS2-like module for FHIR in ruby
 ## Usage
 
 ```ruby
-  term = Terminology::Facade.new(sequel_db)
+  term = Terminology.api(sequel_db)
   term.create_valueset(fhir_json)
   #TODO: more documentation
 

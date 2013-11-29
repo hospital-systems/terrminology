@@ -17,4 +17,8 @@ module Terrminology
   autoload :ConceptRepository,  'terrminology/repositories/concept_repository'
 
   autoload :ValueSetStatus, 'terrminology/custom_coercions/value_set_status'
+
+  def self.api(*args)
+    Facade.new(*args)
+  end
 end
