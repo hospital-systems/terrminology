@@ -1,14 +1,11 @@
 Terrminology
 ===============
 
-
-![alt travis](https://travis-ci.org/hospital-systems/terrminology.png "travis")
-
+[![Build Status](https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png)](https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME])
 
 FHIR Terminology for ruby
 
-
-# Usage
+## Usage
 
 ```
   term = Terminology::Facade.new(sequel_db)
