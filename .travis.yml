@@ -1,9 +1,10 @@
 # .travis.yml
 language: ruby
 rvm:
-  - "2.0.0"
+  - "ruby-2.0.0-p353"
 gemfile:
   - Gemfile
 before_script:
   - psql -c 'create database terrminology;' -U postgres
   - ruby migrate.rb
+script: rspec spec
