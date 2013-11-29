@@ -27,8 +27,8 @@ describe Terrminology do
 
     vs = sys.create_value_set(vs_def)
 
-    sys.value_sets.find {|vs|
-      vs.identifier == 'http://hl7.org/fhir/vs/valueset-status'
+    sys.value_sets.find {|v|
+      v.identifier == 'http://hl7.org/fhir/vs/valueset-status'
     }.should_not be_nil
 
     sys.find_value_set(vs.identifier).identifier.should == vs.identifier
@@ -49,5 +49,6 @@ describe Terrminology do
     sys.remove_concept(concept.identity)
     sys.concepts(vs.identifier,     code: 'reactivated', display: 'Reactivated', definition: 'Reactivated').should be_empty
     sys.concepts(vs.identity).size.should == concepts_amount - 1
+
   end
 end
