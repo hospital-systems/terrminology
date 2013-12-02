@@ -62,9 +62,7 @@
       concept_map_id    uuid            not null,
       name              varchar,
       system            varchar,
-      code              varchar,
-      parent_id         uuid,
-      path              varchar
+      code              varchar
     );
 
     create table terrminology.maps (
