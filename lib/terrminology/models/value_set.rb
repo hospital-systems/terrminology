@@ -1,7 +1,7 @@
 module Terrminology
   class ValueSet < BaseModel
     attribute :value_set_id, String
-    #TODO: should be required
+    #TODO: identifier should be required
     attribute :identifier,   String         #0..1
     attribute :version,      String         #0..1
     attribute :name,         String         #1..1
