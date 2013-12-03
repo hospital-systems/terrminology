@@ -132,7 +132,7 @@ module Terrminology
         child_concepts.map do |child_concept|
           create_concept(
               child_concept.merge(
-                  define_id: concept.concept_id,
+                  define_id: concept.define_id,
                   path:      [concept.path, concept.code].compact.join('/'),
                   parent_id: concept.identity
               )
