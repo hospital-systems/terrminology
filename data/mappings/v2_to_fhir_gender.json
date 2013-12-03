@@ -1,0 +1,85 @@
+{
+    "resourceType": "ConceptMap",
+    "identifier": "v2_gender_to_fhir_gender",
+    "version": "20131203",
+    "name": "v2/FHIR Gender Mapping",
+    "publisher": "Wave Access",
+    "description": "A mapping between the V2 and FHIR Gender Value Sets",
+    "status": "draft",
+    "experimental": true,
+    "date": "2013-12-03",
+    "source": {
+        "reference": "http://hl7.org/fhir/v2/vs/0001"
+    },
+    "target": {
+        "reference": "http://hl7.org/fhir/vs/administrative-gender"
+    },
+    "concept": [
+        {
+            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "code": "A",
+            "map": [
+                {
+                    "system": "http://hl7.org/fhir/vs/administrative-gender",
+                    "code": "UN",
+                    "equivalence": "equivalent"
+                }
+            ]
+        },
+        {
+            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "code": "F",
+            "map": [
+                {
+                    "system": "http://hl7.org/fhir/vs/administrative-gender",
+                    "code": "F",
+                    "equivalence": "equivalent"
+                }
+            ]
+        },
+        {
+            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "code": "M",
+            "map": [
+                {
+                    "system": "http://hl7.org/fhir/vs/administrative-gender",
+                    "code": "M",
+                    "equivalence": "equivalent"
+                }
+            ]
+        },
+        {
+            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "code": "N",
+            "map": [
+                {
+                    "system": "http://hl7.org/fhir/vs/administrative-gender",
+                    "code": "UNK",
+                    "equivalence": "equivalent"
+                }
+            ]
+        },
+        {
+            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "code": "O",
+            "map": [
+                {
+                    "system": "http://hl7.org/fhir/vs/administrative-gender",
+                    "code": "UNK",
+                    "equivalence": "equivalent"
+                }
+            ]
+        },
+        {
+            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "code": "U",
+            "map": [
+                {
+                    "system": "http://hl7.org/fhir/vs/administrative-gender",
+                    "code": "UNK",
+                    "equivalence": "equivalent"
+                }
+            ]
+        }
+    ]
+}
