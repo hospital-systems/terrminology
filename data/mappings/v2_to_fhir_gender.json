@@ -1,6 +1,6 @@
 {
     "resourceType": "ConceptMap",
-    "identifier": "v2_gender_to_fhir_gender",
+    "identifier": "v2_to_fhir_gender",
     "version": "20131203",
     "name": "v2/FHIR Gender Mapping",
     "publisher": "Wave Access",

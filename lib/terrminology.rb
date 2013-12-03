@@ -36,6 +36,7 @@ module Terrminology
   autoload :ConceptMapEquivalence,   'terrminology/custom_coercions/concept_map_equivalence'
 
   autoload :ValueSetLoader,          'terrminology/loaders/value_set_loader'
+  autoload :MappingLoader,           'terrminology/loaders/mapping_loader'
 
   def self.api(*args)
     Facade.new(*args)

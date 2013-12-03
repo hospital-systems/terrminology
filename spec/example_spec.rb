@@ -103,4 +103,22 @@ describe Terrminology do
       @sys.maps.size.should            == 2
     end
   end
+
+  describe '#load_mapping' do
+    it 'should load mapping' do
+      @sys.clear_concept_maps!
+      @sys.clear_source_concepts!
+      @sys.clear_maps!
+
+      filename = 'v2_to_fhir_gender.json'
+      idn = 'v2_to_fhir_gender'
+
+      @sys.concept_maps.find{|cm| cm.identifier == idn}.should be_nil
+      @sys.load_concept_map(filename)
+      @sys.concept_maps.find{|cm| cm.identifier == idn}.should_not be_nil
+
+      @sys.source_concepts.size.should == 6
+      @sys.maps.size.should            == 6
+    end
+  end
 end

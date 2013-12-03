@@ -249,5 +249,9 @@ module Terrminology
     end
 
     private :create_source_concept, :create_map
+
+    def load_concept_map(filename)
+      MappingLoader.new.load(filename)
+    end
   end
 end
