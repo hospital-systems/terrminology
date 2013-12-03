@@ -11,7 +11,7 @@
     drop type if exists concept_map_equivalence;
     create type concept_map_equivalence as enum ('equal', 'equivalent', 'wider', 'narrower', 'inexact', 'unmatched', 'disjoint');
 
-    drop type if exists filter_oprator;
+    drop type if exists filter_operator;
     create type filter_operator as enum ('=', 'is-a', 'is-not-a', 'regex');
 
 

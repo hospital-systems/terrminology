@@ -35,6 +35,8 @@ module Terrminology
   autoload :FilterOperator,          'terrminology/custom_coercions/filter_operator'
   autoload :ConceptMapEquivalence,   'terrminology/custom_coercions/concept_map_equivalence'
 
+  autoload :ValueSetLoader,          'terrminology/loaders/value_set_loader'
+
   def self.api(*args)
     Facade.new(*args)
   end

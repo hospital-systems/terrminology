@@ -1,0 +1,66 @@
+{
+    "resourceType":
+        "ValueSet",
+    "text":
+    {
+        "status":
+            "generated",
+        "div":
+            "<div><p>Release Date: 2013-08-06</p>\r\n<h2>Description</h2>\r\n<p>\n\t\t\t\t\t\tThe gender of a person used for adminstrative purposes (as opposed to clinical gender)<br/>\r\n\n\t\t\t\t\t</p>\r\n<hr/>\r\n<table class=\"grid\">\r\n <tr><td><b>Level</b></td><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr>\r\n <tr><td>1</td><td>F<a name=\"F\"> </a></td><td>Female</td><td>\n\t\t\t\t\t\t\t\tFemale<br/>\r\n\n\t\t\t\t\t\t\t</td></tr>\r\n <tr><td>1</td><td>M<a name=\"M\"> </a></td><td>Male</td><td>\n\t\t\t\t\t\t\t\tMale<br/>\r\n\n\t\t\t\t\t\t\t</td></tr>\r\n <tr><td>1</td><td>UN<a name=\"UN\"> </a></td><td>Undifferentiated</td><td>\n\t\t\t\t\t\t\t\tThe gender of a person could not be uniquely defined as male or female, such as hermaphrodite.<br/>\r\n\n\t\t\t\t\t\t\t</td></tr>\r\n</table>\r\n</div>"
+    },
+    "identifier":
+        "http://hl7.org/fhir/v3/vs/AdministrativeGender",
+    "name":
+        "v3 Code System AdministrativeGender",
+    "publisher":
+        "HL7, Inc",
+    "telecom":
+        [
+            {
+                "system":
+                    "url",
+                "value":
+                    "http://hl7.org"
+            }
+        ],
+    "description":
+        " The gender of a person used for adminstrative purposes (as opposed to clinical gender)",
+    "status":
+        "active",
+    "date":
+        "2013-08-06",
+    "define":
+    {
+        "system":
+            "http://hl7.org/fhir/v3/AdministrativeGender",
+        "caseSensitive":
+            true,
+        "concept":
+            [
+                {
+                    "code":
+                        "F",
+                    "display":
+                        "Female",
+                    "definition":
+                        "Female"
+                },
+                {
+                    "code":
+                        "M",
+                    "display":
+                        "Male",
+                    "definition":
+                        "Male"
+                },
+                {
+                    "code":
+                        "UN",
+                    "display":
+                        "Undifferentiated",
+                    "definition":
+                        "The gender of a person could not be uniquely defined as male or female, such as hermaphrodite."
+                }
+            ]
+    }
+}

@@ -35,7 +35,7 @@ module Terrminology
     end
 
     def wrap(row)
-      entity.new(row)
+      row.nil? ? nil : entity.new(row)
     end
 
     def create(atts)
