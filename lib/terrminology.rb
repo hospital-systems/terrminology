@@ -38,6 +38,8 @@ module Terrminology
   autoload :ValueSetLoader,          'terrminology/loaders/value_set_loader'
   autoload :MappingLoader,           'terrminology/loaders/mapping_loader'
 
+  autoload :Coding,                  'terrminology/models/coding'
+
   def self.api(*args)
     Facade.new(*args)
   end
