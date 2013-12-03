@@ -54,6 +54,7 @@ describe Terrminology do
 
   describe '#load_value_set' do
     it 'should load defined linear value set' do
+      @sys.clear_value_sets!
       idn = 'http://hl7.org/fhir/v2/vs/0001'
       @sys.find_value_set(idn).should be_nil
       @sys.load_value_set('v2-0001.json')
@@ -61,6 +62,7 @@ describe Terrminology do
     end
 
     it 'should load defined hierarchical value set' do
+      @sys.clear_value_sets!
       idn = 'http://hl7.org/fhir/v3/vs/NullFlavor'
       @sys.find_value_set(idn).should be_nil
       @sys.load_value_set('v3-NullFlavor.json')
@@ -68,6 +70,7 @@ describe Terrminology do
     end
 
     it 'should raise an exception loading a composed value set if a required value set is missing' do
+      @sys.clear_value_sets!
       idn = 'http://hl7.org/fhir/vs/administrative-gender'
       @sys.find_value_set(idn).should be_nil
       expect {
@@ -77,11 +80,27 @@ describe Terrminology do
     end
 
     it 'should load composed value set if all required value sets are present' do
+      @sys.clear_value_sets!
       idn = 'http://hl7.org/fhir/vs/administrative-gender'
       @sys.load_value_set('v3-AdministrativeGender.json')
       @sys.load_value_set('v3-NullFlavor.json')
       @sys.load_value_set('valueset-administrative-gender.json')
       @sys.find_value_set(idn).should_not be_nil
+    end
+  end
+
+  describe '#create_concept_map with two concepts and two maps' do
+    it 'should create concept map' do
+      @sys.clear_concept_maps!
+      @sys.clear_source_concepts!
+      @sys.clear_maps!
+
+      cm_def = JSON.parse(rfile('concept_map.json'))
+      @sys.concept_maps.find{|cm| cm.identifier == cm_def['identifier']}.should be_nil
+      @sys.create_concept_map(cm_def)
+      @sys.concept_maps.find{|cm| cm.identifier == cm_def['identifier']}.should_not be_nil
+      @sys.source_concepts.size.should == 2
+      @sys.maps.size.should            == 2
     end
   end
 end

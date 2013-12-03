@@ -59,8 +59,8 @@
       status            value_set_status   not null,
       experimental      boolean,
       date              timestamp,
-      source            uuid               not null,
-      target            uuid               not null
+      source            varchar            not null,
+      target            varchar            not null
     );
 
     create table terrminology.source_concepts (

@@ -181,5 +181,73 @@ module Terrminology
     def code_repository
       CodeRepository.new(db)
     end
+
+    def concept_map_repository
+      ConceptMapRepository.new(db)
+    end
+
+    def source_concept_repository
+      SourceConceptRepository.new(db)
+    end
+
+    def map_repository
+      MapRepository.new(db)
+    end
+
+    def concept_maps
+      concept_map_repository.all
+    end
+
+    def clear_concept_maps!
+      concept_map_repository.destroy_all
+    end
+
+    def source_concepts
+      source_concept_repository.all
+    end
+
+    def clear_source_concepts!
+      source_concept_repository.destroy_all
+    end
+
+    def maps
+      map_repository.all
+    end
+
+    def clear_maps!
+      map_repository.destroy_all
+    end
+
+    def create_concept_map(attrs)
+      @db.transaction(:savepoint => true) do
+        concept_map_attributes = u.normalize_attributes(attrs)
+
+        concept_map_attributes.delete('resource_type')
+        concept_map_attributes['source'] = concept_map_attributes['source']['reference']
+        concept_map_attributes['target'] = concept_map_attributes['target']['reference']
+        concepts = concept_map_attributes.delete('concept')
+
+        concept_map_repository.create(concept_map_attributes).tap do |cm|
+          concepts.map do |concept|
+            create_source_concept(concept.merge(concept_map_id: cm.identity))
+          end if concepts
+        end
+      end
+    end
+
+    def create_source_concept(attrs)
+      maps = attrs.delete('map')
+      source_concept_repository.create(attrs).tap do |sc|
+        maps.map do |map|
+          create_map(map.merge(source_concept_id: sc.identity))
+        end if maps
+      end
+    end
+
+    def create_map(attrs)
+      map_repository.create(attrs)
+    end
+
+    private :create_source_concept, :create_map
   end
 end

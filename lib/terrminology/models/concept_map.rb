@@ -1,5 +1,5 @@
-module Terminology
-  class ConceptMap
+module Terrminology
+  class ConceptMap < BaseModel
     attribute :concept_map_id, String
     attribute :identifier,     String         #0..1
     attribute :version,        String         #0..1
