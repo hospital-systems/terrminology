@@ -16,22 +16,22 @@
     "concept": [
         {
             "system": "http://hl7.org/fhir/v2/vs/0001",
-            "code": "F",
+            "code": "A",
             "map": [
                 {
                     "system": "http://hl7.org/fhir/vs/administrative-gender",
-                    "code": "F",
+                    "code": "UN",
                     "equivalence": "equivalent"
                 }
             ]
         },
         {
             "system": "http://hl7.org/fhir/v2/vs/0001",
-            "code": "M",
+            "code": "U",
             "map": [
                 {
                     "system": "http://hl7.org/fhir/vs/administrative-gender",
-                    "code": "M",
+                    "code": "UNK",
                     "equivalence": "equivalent"
                 }
             ]

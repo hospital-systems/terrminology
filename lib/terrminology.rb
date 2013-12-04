@@ -40,6 +40,8 @@ module Terrminology
 
   autoload :Coding,                  'terrminology/models/coding'
 
+  autoload :CodingBuilder,           'terrminology/builders/coding_builder'
+
   def self.api(*args)
     Facade.new(*args)
   end

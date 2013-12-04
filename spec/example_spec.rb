@@ -6,6 +6,12 @@ describe Terrminology do
   around(:each) do |example|
     DB.transaction do # BEGIN
       @sys = Terrminology.api(DB)
+      @sys.clear_value_sets!
+      @sys.clear_defines!
+      @sys.clear_concepts!
+      @sys.clear_concept_maps!
+      @sys.clear_source_concepts!
+      @sys.clear_maps!
       example.run
       raise Sequel::Rollback
     end
@@ -16,9 +22,6 @@ describe Terrminology do
   end
 
   example do
-
-    @sys.clear_value_sets!
-
     vs_def = JSON.parse(rfile('valueset-status.json'))
     idn = 'http://hl7.org/fhir/vs/valueset-status'
 
@@ -54,7 +57,6 @@ describe Terrminology do
 
   describe '#load_value_set' do
     it 'should load defined linear value set' do
-      @sys.clear_value_sets!
       idn = 'http://hl7.org/fhir/v2/vs/0001'
       @sys.find_value_set(idn).should be_nil
       @sys.load_value_set('v2-0001.json')
@@ -62,7 +64,6 @@ describe Terrminology do
     end
 
     it 'should load defined hierarchical value set' do
-      @sys.clear_value_sets!
       idn = 'http://hl7.org/fhir/v3/vs/NullFlavor'
       @sys.find_value_set(idn).should be_nil
       @sys.load_value_set('v3-NullFlavor.json')
@@ -70,7 +71,6 @@ describe Terrminology do
     end
 
     it 'should raise an exception loading a composed value set if a required value set is missing' do
-      @sys.clear_value_sets!
       idn = 'http://hl7.org/fhir/vs/administrative-gender'
       @sys.find_value_set(idn).should be_nil
       expect {
@@ -80,7 +80,6 @@ describe Terrminology do
     end
 
     it 'should load composed value set if all required value sets are present' do
-      @sys.clear_value_sets!
       idn = 'http://hl7.org/fhir/vs/administrative-gender'
       @sys.load_value_set('v3-AdministrativeGender.json')
       @sys.load_value_set('v3-NullFlavor.json')
@@ -91,34 +90,45 @@ describe Terrminology do
 
   describe '#create_concept_map with two concepts and two maps' do
     it 'should create concept map' do
-      @sys.clear_concept_maps!
-      @sys.clear_source_concepts!
-      @sys.clear_maps!
-
       cm_def = JSON.parse(rfile('concept_map.json'))
       @sys.concept_maps.find{|cm| cm.identifier == cm_def['identifier']}.should be_nil
-      @sys.create_concept_map(cm_def)
+      concept_map = @sys.create_concept_map(cm_def)
       @sys.concept_maps.find{|cm| cm.identifier == cm_def['identifier']}.should_not be_nil
-      @sys.source_concepts.size.should == 2
-      @sys.maps.size.should            == 2
+      @sys.source_concepts(concept_map.identity).size.should == 2
+      @sys.source_concepts(concept_map.identity).map{|sc| @sys.maps(sc.identity).size}.inject(&:+).should == 2
     end
   end
 
   describe '#load_mapping' do
     it 'should load mapping' do
-      @sys.clear_concept_maps!
-      @sys.clear_source_concepts!
-      @sys.clear_maps!
-
       filename = 'v2_to_fhir_gender.json'
       idn = 'v2_to_fhir_gender'
 
       @sys.concept_maps.find{|cm| cm.identifier == idn}.should be_nil
-      @sys.load_concept_map(filename)
+      concept_map = @sys.load_concept_map(filename)
       @sys.concept_maps.find{|cm| cm.identifier == idn}.should_not be_nil
 
-      @sys.source_concepts.size.should == 6
-      @sys.maps.size.should            == 6
+      @sys.source_concepts(concept_map.identifier).size.should == 6
+      @sys.source_concepts(concept_map.identity).map{|sc| @sys.maps(sc.identity).size}.inject(&:+).should == 6
+    end
+  end
+
+  describe '#map_concept' do
+    it 'should return mapped concept coding for the source code' do
+      @sys.load_value_set('v3-AdministrativeGender.json')
+      @sys.load_value_set('v3-NullFlavor.json')
+      @sys.load_value_set('valueset-administrative-gender.json')
+
+      cm_def = JSON.parse(rfile('concept_map.json'))
+
+      concept_map    = @sys.create_concept_map(cm_def)
+      source_concept = @sys.source_concepts(concept_map.identifier).first
+      map            = @sys.maps(source_concept.identity).first
+
+      mapped         = @sys.map_concept(concept_map.source, source_concept.code, concept_map.target)
+      mapped.should_not       be_nil
+      mapped.code.should   == map.code
+      mapped.value_set.should == concept_map.target
     end
   end
 end

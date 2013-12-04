@@ -25,11 +25,23 @@ module Terrminology
     end
 
     def find(concept_id)
-      search(value_set_id_or_identifier, concept_id: concept_id_or_code).first
+      search(value_set_id_or_identifier, concept_id: concept_id).first
     end
 
     def destroy(concept_id)
       relation.where(concept_id: concept_id).delete
+    end
+
+    def search_in_composed_value_set_by_code(identifier, code)
+      rel = relation
+      .join(:terrminology__defines,    [:define_id])
+      .join(:terrminology__includes,   [:system])
+      .join(:terrminology__composes,   [:compose_id])
+      .join(:terrminology__value_sets, :composes__value_set_id => :value_sets__value_set_id)
+      .join(:terrminology__codes,     [:include_id])
+      .filter(concepts__code: code, value_sets__identifier: identifier, codes__value: code)
+
+      rel.map{|e| wrap(e)}
     end
   end
 end

@@ -82,6 +82,7 @@ module Terrminology
     def find_required_value_set(include_attributes)
       vs = find_value_set(include_attributes['system'])
       if vs.nil?
+        # TODO: вынести создание value_set_uri в utils/include ?
         split_system_uri = include_attributes['system'].split('/')
         vs = find_value_set([*split_system_uri[0..-2], 'vs', split_system_uri[-1]].join('/'))
       end
@@ -124,6 +125,10 @@ module Terrminology
 
     def concepts(id_or_identifier, concepts_filter = nil)
       concept_repository.search(id_or_identifier, concepts_filter)
+    end
+
+    def concepts_in_composed(identifier, code)
+      concept_repository.search_in_composed_value_set_by_code(identifier, code)
     end
 
     def create_concept(concept_attributes)
@@ -198,20 +203,24 @@ module Terrminology
       concept_map_repository.all
     end
 
+    def find_concept_map(source_vs, target_vs)
+      concept_map_repository.find(source_vs, target_vs)
+    end
+
     def clear_concept_maps!
       concept_map_repository.destroy_all
     end
 
-    def source_concepts
-      source_concept_repository.all
+    def source_concepts(id_or_identifier, source_concepts_filter = nil)
+      source_concept_repository.search(id_or_identifier, source_concepts_filter)
     end
 
     def clear_source_concepts!
       source_concept_repository.destroy_all
     end
 
-    def maps
-      map_repository.all
+    def maps(id_or_identifier, maps_filter = nil)
+      map_repository.search(id_or_identifier, maps_filter)
     end
 
     def clear_maps!
@@ -252,6 +261,20 @@ module Terrminology
 
     def load_concept_map(filename)
       MappingLoader.new.load(filename)
+    end
+
+    def map_concept(source_vs, source_code, target_vs)
+      #TODO: what if there are several concept_maps for the given source and target?
+      cm = find_concept_map(source_vs, target_vs)
+      return nil unless cm
+
+      sc = source_concepts(cm.identity, code: source_code).first
+      return nil unless sc
+
+      map = maps(sc.identity).first
+      return nil unless map
+
+      CodingBuilder.new.build(target_vs, map.code)
     end
   end
 end
