@@ -131,4 +131,11 @@ describe Terrminology do
       mapped.value_set.should == concept_map.target
     end
   end
+
+  describe '#load_all_value_sets' do
+    it 'should load all value sets resolving requirements' do
+      @sys.load_all_value_sets
+      @sys.value_sets.size.should == 8
+    end
+  end
 end

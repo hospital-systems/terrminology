@@ -70,13 +70,8 @@ module Terrminology
     end
 
     def find_required_value_set(include_attributes)
-      vs = find_value_set(include_attributes['system'])
-      if vs.nil?
-        # TODO: вынести создание value_set_uri в utils/include ?
-        split_system_uri = include_attributes['system'].split('/')
-        vs = find_value_set([*split_system_uri[0..-2], 'vs', split_system_uri[-1]].join('/'))
-      end
-      vs
+      find_value_set(include_attributes['system']) ||
+      find_value_set(u.convert_code_system_id_to_value_set_id(include_attributes['system']))
     end
 
     private :create_define, :create_compose, :find_required_value_set
@@ -154,7 +149,7 @@ module Terrminology
     private :find_define
 
     def load_value_set(filename)
-      ValueSetLoader.new.load(filename)
+      ValueSetLoader.load(filename)
     end
 
     def compose_repository
@@ -265,6 +260,10 @@ module Terrminology
 
     def coding(value_set_identifier, code)
       CodingBuilder.new.build(value_set_identifier, code)
+    end
+
+    def load_all_value_sets
+      ValueSetLoader.load_all_value_sets
     end
   end
 end

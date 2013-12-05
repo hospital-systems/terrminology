@@ -8,6 +8,11 @@ module Terrminology
       str =~ /^[0-9a-z]{8}(-[0-9a-z]{4}){2}/
     end
 
+    def convert_code_system_id_to_value_set_id(system)
+      split_system_uri = system.split('/')
+      [*split_system_uri[0..-2], 'vs', split_system_uri[-1]].join('/')
+    end
+
     def normalize_attributes(attrs)
       if attrs.is_a?(Hash)
         res = {}
