@@ -81,6 +81,8 @@ module Terrminology
     end
 
     def clear_value_sets!
+      clear_defines!
+      clear_composes!
       value_set_repository.destroy_all
     end
 
@@ -95,6 +97,7 @@ module Terrminology
     end
 
     def clear_defines!
+      clear_concepts!
       define_repository.destroy_all
     end
 
@@ -156,8 +159,18 @@ module Terrminology
       ComposeRepository.new(db)
     end
 
+    def clear_composes!
+      clear_includes!
+      compose_repository.destroy_all
+    end
+
     def include_repository
       IncludeRepository.new(db)
+    end
+
+    def clear_includes!
+      clear_codes!
+      include_repository.destroy_all
     end
 
     def filter_repository
@@ -166,6 +179,10 @@ module Terrminology
 
     def code_repository
       CodeRepository.new(db)
+    end
+
+    def clear_codes!
+      code_repository.destroy_all
     end
 
     def concept_map_repository
