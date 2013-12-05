@@ -30,51 +30,41 @@ module Terrminology
         define  = value_set_attributes.delete('define')
 
         compose = value_set_attributes.delete('compose')
-
-        if define && compose
-          raise ArgumentError, "Value set #{value_set_attributes['identifier']} contains both compose and define"
-        elsif define
-          create_defined_value_set(value_set_attributes, define)
-        elsif compose
-          create_composed_value_set(value_set_attributes, compose)
+        value_set_repository.create(value_set_attributes).tap do |vs|
+          create_define( define.merge( {'value_set_id' => vs.identity})) if define
+          create_compose(compose.merge({'value_set_id' => vs.identity})) if compose
         end
       end
     end
 
-    def create_defined_value_set(value_set_attributes, define)
-      value_set_repository.create(value_set_attributes).tap do |vs|
-        define['value_set_id'] = vs.identity
-        concepts = define.delete('concept')
-        df = define_repository.create(define)
+    def create_define(define)
+      concepts = define.delete('concept')
+      df = define_repository.create(define)
 
-        concepts.map do |concept|
-          create_concept(concept.merge(define_id: df.identity))
-        end
+      concepts.map do |concept|
+        create_concept(concept.merge(define_id: df.identity))
       end
     end
 
-    def create_composed_value_set(value_set_attributes, compose)
-      value_set_repository.create(value_set_attributes).tap do |vs|
-        compose['value_set_id'] = vs.identity
-        includes = compose.delete('include')
-        compose  = compose_repository.create(compose)
+    def create_compose(compose)
+      includes = compose.delete('include')
+      compose  = compose_repository.create(compose)
 
-        includes.map do |include|
-          raise ArgumentError, "Required value set #{include['system']} missing" unless find_required_value_set(include)
-          include['compose_id'] = compose.identity
-          filters = include.delete('filter')
-          codes   = include.delete('code')
+      includes.map do |include|
+        raise ArgumentError, "Required value set #{include['system']} missing" unless find_required_value_set(include)
+        include['compose_id'] = compose.identity
+        filters = include.delete('filter')
+        codes   = include.delete('code')
 
-          include = include_repository.create(include)
+        include = include_repository.create(include)
 
-          filters.map do |filter|
-            filter['include_id'] = include.identity
-            filter_repostory.create(filter)
-          end if filters
+        filters.map do |filter|
+          filter['include_id'] = include.identity
+          filter_repostory.create(filter)
+        end if filters
 
-          codes.map do |code|
-            code_repository.create(value: code, include_id: include.identity)
-          end
+        codes.map do |code|
+          code_repository.create(value: code, include_id: include.identity)
         end
       end
     end
@@ -89,7 +79,7 @@ module Terrminology
       vs
     end
 
-    private :create_defined_value_set, :create_composed_value_set, :find_required_value_set
+    private :create_define, :create_compose, :find_required_value_set
 
     def find_value_set(id_or_identifier)
       value_set_repository.find(id_or_identifier)
@@ -107,10 +97,6 @@ module Terrminology
 
     def defines
       define_repository.all
-    end
-
-    def create_define(define_attributes)
-      define_repository.create(define_attributes)
     end
 
     def clear_defines!
