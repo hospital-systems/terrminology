@@ -274,7 +274,11 @@ module Terrminology
       map = maps(sc.identity).first
       return nil unless map
 
-      CodingBuilder.new.build(target_vs, map.code)
+      coding(target_vs, map.code)
+    end
+
+    def coding(value_set_identifier, code)
+      CodingBuilder.new.build(value_set_identifier, code)
     end
   end
 end
