@@ -1,0 +1,69 @@
+{
+    "resourceType": "ValueSet",
+    "text": {
+        "status": "generated",
+        "div": "<div><p>Release Date: 2013-08-06</p>\r\n<table class=\"grid\">\r\n <tr><td><b>Level</b></td><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr>\r\n <tr><td>1</td><td>A<a name=\"A\"> </a></td><td>Annulled</td><td>\n\t\t\t\t\t\t\t\tMarriage contract has been declared null and to not have existed<br/>\r\n\n\t\t\t\t\t\t\t</td></tr>\r\n <tr><td>1</td><td>D<a name=\"D\"> </a></td><td>Divorced</td><td>\n\t\t\t\t\t\t\t\tMarriage contract has been declared dissolved and inactive<br/>\r\n\n\t\t\t\t\t\t\t</td></tr>\r\n <tr><td>1</td><td>I<a name=\"I\"> </a></td><td>Interlocutory</td><td>\n\t\t\t\t\t\t\t\tSubject to an Interlocutory Decree.<br/>\r\n\n\t\t\t\t\t\t\t</td></tr>\r\n <tr><td>1</td><td>L<a name=\"L\"> </a></td><td>Legally Separated</td><td/></tr>\r\n <tr><td>1</td><td>M<a name=\"M\"> </a></td><td>Married</td><td>\n\t\t\t\t\t\t\t\tA current marriage contract is active<br/>\r\n\n\t\t\t\t\t\t\t</td></tr>\r\n <tr><td>1</td><td>P<a name=\"P\"> </a></td><td>Polygamous</td><td>\n\t\t\t\t\t\t\t\tMore than 1 current spouse<br/>\r\n\n\t\t\t\t\t\t\t</td></tr>\r\n <tr><td>1</td><td>S<a name=\"S\"> </a></td><td>Never Married</td><td>\n\t\t\t\t\t\t\t\tNo marriage contract has ever been entered<br/>\r\n\n\t\t\t\t\t\t\t</td></tr>\r\n <tr><td>1</td><td>T<a name=\"T\"> </a></td><td>Domestic partner</td><td>\n\t\t\t\t\t\t\t\tPerson declares that a domestic partner relationship exists.<br/>\r\n\n\t\t\t\t\t\t\t</td></tr>\r\n <tr><td>1</td><td>W<a name=\"W\"> </a></td><td>Widowed</td><td>\n\t\t\t\t\t\t\t\tThe spouse has died<br/>\r\n\n\t\t\t\t\t\t\t</td></tr>\r\n</table>\r\n</div>"
+    },
+    "identifier": "http://hl7.org/fhir/v3/vs/MaritalStatus",
+    "name": "v3 Code System MaritalStatus",
+    "publisher": "HL7, Inc",
+    "telecom": [
+        {
+            "system": "url",
+            "value": "http://hl7.org"
+        }
+    ],
+    "description": "? not found",
+    "status": "active",
+    "date": "2013-08-06",
+    "define": {
+        "system": "http://hl7.org/fhir/v3/MaritalStatus",
+        "caseSensitive": true,
+        "concept": [
+            {
+                "code": "A",
+                "display": "Annulled",
+                "definition": "Marriage contract has been declared null and to not have existed"
+            },
+            {
+                "code": "D",
+                "display": "Divorced",
+                "definition": "Marriage contract has been declared dissolved and inactive"
+            },
+            {
+                "code": "I",
+                "display": "Interlocutory",
+                "definition": "Subject to an Interlocutory Decree."
+            },
+            {
+                "code": "L",
+                "display": "Legally Separated"
+            },
+            {
+                "code": "M",
+                "display": "Married",
+                "definition": "A current marriage contract is active"
+            },
+            {
+                "code": "P",
+                "display": "Polygamous",
+                "definition": "More than 1 current spouse"
+            },
+            {
+                "code": "S",
+                "display": "Never Married",
+                "definition": "No marriage contract has ever been entered"
+            },
+            {
+                "code": "T",
+                "display": "Domestic partner",
+                "definition": "Person declares that a domestic partner relationship exists."
+            },
+            {
+                "code": "W",
+                "display": "Widowed",
+                "definition": "The spouse has died"
+            }
+        ]
+    }
+}
