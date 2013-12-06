@@ -5,7 +5,5 @@ module Terrminology
     attribute :name,              String #0..1
     attribute :system,            String #0..1
     attribute :code,              String #0..1
-    attribute :parent_id,         String
-    attribute :path,              String
   end
 end

@@ -22,6 +22,7 @@ module Terrminology
 
     def create_value_set(attrs)
       @db.transaction(:savepoint => true) do
+        # TODO: move normalizing attributes into loader?
         value_set_attributes = u.normalize_attributes(attrs)
 
         value_set_attributes.delete('resource_type')
@@ -43,7 +44,7 @@ module Terrminology
 
       concepts.map do |concept|
         create_concept(concept.merge(define_id: df.identity))
-      end
+      end if concepts
     end
 
     def create_compose(compose)
@@ -60,13 +61,13 @@ module Terrminology
 
         filters.map do |filter|
           filter['include_id'] = include.identity
-          filter_repostory.create(filter)
+          filter_repository.create(filter)
         end if filters
 
         codes.map do |code|
           code_repository.create(value: code, include_id: include.identity)
-        end
-      end
+        end if codes
+      end if includes
     end
 
     def find_required_value_set(include_attributes)

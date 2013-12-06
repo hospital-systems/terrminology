@@ -134,8 +134,8 @@ describe Terrminology do
 
   describe '#load_all_value_sets' do
     it 'should load all value sets resolving requirements' do
-      @sys.load_all_value_sets
-      @sys.value_sets.size.should == 8
+      loaded = @sys.load_all_value_sets[:loaded]
+      @sys.value_sets.size.should == loaded
     end
   end
 end

@@ -39,6 +39,7 @@ module Terrminology
     end
 
     def create(atts)
+      atts = entity.new(atts).safe_attributes #sanitizing input
       identity = relation.insert(atts)
       atts["#{u.underscore(entity_name)}_id"] = identity
       entity.new(atts)
