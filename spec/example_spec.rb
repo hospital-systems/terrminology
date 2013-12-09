@@ -7,11 +7,7 @@ describe Terrminology do
     DB.transaction do # BEGIN
       @sys = Terrminology.api(DB)
       @sys.clear_value_sets!
-      @sys.clear_defines!
-      @sys.clear_concepts!
       @sys.clear_concept_maps!
-      @sys.clear_source_concepts!
-      @sys.clear_maps!
       example.run
       raise Sequel::Rollback
     end
