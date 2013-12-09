@@ -153,7 +153,7 @@ module Terrminology
     private :find_define
 
     def load_value_set(filename)
-      ValueSetLoader.load(filename)
+      ValueSetLoader.new(self).load(filename)
     end
 
     def compose_repository
@@ -259,7 +259,7 @@ module Terrminology
     private :create_source_concept, :create_map
 
     def load_concept_map(filename)
-      MappingLoader.new.load(filename)
+      MappingLoader.new(self).load(filename)
     end
 
     def map_concept(source_vs, source_code, target_vs)
@@ -277,11 +277,11 @@ module Terrminology
     end
 
     def coding(value_set_identifier, code)
-      CodingBuilder.new.build(value_set_identifier, code)
+      CodingBuilder.new(self).build(value_set_identifier, code)
     end
 
     def load_all_value_sets
-      ValueSetLoader.load_all_value_sets
+      ValueSetLoader.new(self).load_all_value_sets
     end
   end
 end

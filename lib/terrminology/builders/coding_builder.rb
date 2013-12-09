@@ -1,5 +1,9 @@
 module Terrminology
   class CodingBuilder
+    def initialize(facade)
+      @facade = facade
+    end
+
     def build(target_value_set_identifier, target_code)
       coding  = nil
       concept = find_concept(target_value_set_identifier, target_code)
@@ -30,8 +34,7 @@ module Terrminology
     end
 
     def find_concept(value_set_identifier, code)
-      sys = Terrminology.api(DB)
-      sys.concepts(value_set_identifier, code: code).first || sys.concepts_in_composed(value_set_identifier, code).first
+      @facade.concepts(value_set_identifier, code: code).first || @facade.concepts_in_composed(value_set_identifier, code).first
     end
   end
 end

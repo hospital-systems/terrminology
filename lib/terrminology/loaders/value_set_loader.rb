@@ -3,17 +3,18 @@ require 'tsort'
 require 'active_support/core_ext/hash'
 
 module Terrminology
-  module ValueSetLoader
-    extend self
+  class ValueSetLoader
     VALUE_SETS_DIR = File.expand_path(File.join(File.dirname(__FILE__), '../../../data/value_sets'))
+
+    def initialize(facade)
+      @facade = facade
+    end
+
     def load(filename)
-      sys = Terrminology.api(DB)
-      sys.create_value_set(get_json(filename))
+      @facade.create_value_set(get_json(filename))
     end
 
     def load_all_value_sets
-      sys = Terrminology.api(DB)
-
       value_sets = json_files.reduce(ValueSetFiles.new) do |value_sets, filename|
         parsed_json = get_json(filename)
         if parsed_json['resourceType'] && parsed_json['resourceType'] == 'ValueSet'
@@ -34,7 +35,7 @@ module Terrminology
       loaded = value_sets.size
 
       value_sets.tsort.each do |identifier|
-        sys.create_value_set(value_sets[identifier])
+        @facade.create_value_set(value_sets[identifier])
       end
 
       {:total => total, :loaded => loaded}
