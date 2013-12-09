@@ -58,11 +58,12 @@ module Terrminology
       concept_repository.search_in_composed_value_set_by_code(identifier, code)
     end
 
-    def add_concept(id_or_identifier, concept_attributes)
-      #TODO: accept an array of hashes
+    def add_concept(id_or_identifier, *concept_attributes)
       value_set = find_value_set(id_or_identifier)
       define    = find_define(value_set.identity)
-      create_concept(concept_attributes.merge(define_id: define.identity))
+      ans = concept_attributes.map{ |attr| create_concept(attr.merge(define_id: define.identity)) }
+
+      ans.size == 1 ? ans.first : ans
     end
 
     def remove_concept(concept_id)
