@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    Terrminology (0.0.1)
+    terrminology (0.0.1)
       pg
       sequel
       uuid
@@ -55,7 +55,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  Terrminology!
   activesupport
   bundler (~> 1.3)
   nokogiri
@@ -63,5 +62,6 @@ DEPENDENCIES
   rake
   rspec
   sequel
+  terrminology!
   uuid
   virtus

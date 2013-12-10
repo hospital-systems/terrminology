@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'terrminology/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'Terrminology'
+  spec.name          = 'terrminology'
   spec.version       = Terrminology::VERSION
   spec.authors       = ['dmitry-n']
   spec.email         = ['nechayevdv@gmail.com']
