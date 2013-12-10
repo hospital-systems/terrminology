@@ -1,5 +1,3 @@
-require 'json'
-
 module Terrminology
   class MappingLoader
     MAPPINGS_DIR = '../../../data/mappings'

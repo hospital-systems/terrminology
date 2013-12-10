@@ -1,5 +1,3 @@
-require 'set'
-
 module Terrminology
   class ConceptMapEquivalence < Virtus::Attribute
     VALID_VALUES = Set.new(%w(equal equivalent wider narrower inexact unmatched disjoint))

@@ -1,5 +1,3 @@
-require 'set'
-
 module Terrminology
   class ValueSetStatus < Virtus::Attribute
     VALID_VALUES = Set.new(%w(draft active retired))

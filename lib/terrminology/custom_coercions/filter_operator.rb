@@ -1,5 +1,3 @@
-require 'set'
-
 module Terrminology
   class FilterOperator < Virtus::Attribute
     VALID_VALUES = Set.new(%w(= is-a is-not-a regex))

@@ -1,6 +1,4 @@
-require 'json'
 require 'tsort'
-require 'active_support/core_ext/hash'
 
 module Terrminology
   class ValueSetLoader

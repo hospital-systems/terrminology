@@ -1,5 +1,3 @@
-require 'active_support/core_ext/hash/indifferent_access'
-
 module Terrminology
   class BaseModel
     #TODO: decide if coercion mode should be set to strict

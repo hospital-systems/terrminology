@@ -1,5 +1,10 @@
 require 'terrminology/version'
 require 'virtus'
+require 'active_support/core_ext/hash/indifferent_access'
+require 'active_support/inflector'
+require 'sequel'
+require 'set'
+require 'json'
 
 module Terrminology
   autoload :Utils,                   'terrminology/utils'
