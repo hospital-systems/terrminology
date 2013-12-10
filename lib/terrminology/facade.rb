@@ -6,8 +6,8 @@ module Terrminology
 
     attr_reader :db
 
-    def initialize(db)
-      @db = db
+    def initialize(db = nil)
+      @db = db || Sequel.connect(ENV['SEQUEL'] || 'postgres:///terrminology')
     end
 
     def value_sets
