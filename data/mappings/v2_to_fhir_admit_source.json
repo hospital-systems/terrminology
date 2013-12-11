@@ -1,0 +1,137 @@
+{
+    "resourceType": "ConceptMap",
+    "identifier": "v2_to_fhir_admit_source",
+    "version": "20131211",
+    "name": "v2/FHIR Admit Source Mapping",
+    "publisher": "Wave Access",
+    "description": "A mapping between the V2 and FHIR Admit Source Value Sets",
+    "status": "draft",
+    "experimental": true,
+    "date": "2013-12-11",
+    "source": {
+        "reference": "http://hl7.org/fhir/v2/vs/0001"
+    },
+    "target": {
+        "reference": "http://hl7.org/fhir/vs/encounter-admit-source"
+    },
+    "concept": [
+        {
+            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "code": "4",
+            "map": [
+                {
+                    "system": "http://hl7.org/fhir/admit-source",
+                    "code": "hosp-trans",
+                    "equivalence": "equivalent"
+                }
+            ]
+        },
+        {
+            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "code": "7",
+            "map": [
+                {
+                    "system": "http://hl7.org/fhir/admit-source",
+                    "code": "emd",
+                    "equivalence": "equivalent"
+                }
+            ]
+        },
+        {
+            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "code": "",
+            "map": [
+                {
+                    "system": "http://hl7.org/fhir/admit-source",
+                    "code": "outp",
+                    "equivalence": "equivalent"
+                }
+            ]
+        },
+        {
+            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "code": "",
+            "map": [
+                {
+                    "system": "http://hl7.org/fhir/admit-source",
+                    "code": "born",
+                    "equivalence": "equivalent"
+                }
+            ]
+        },
+        {
+            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "code": "",
+            "map": [
+                {
+                    "system": "http://hl7.org/fhir/admit-source",
+                    "code": "gp",
+                    "equivalence": "equivalent"
+                }
+            ]
+        },
+        {
+            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "code": "",
+            "map": [
+                {
+                    "system": "http://hl7.org/fhir/admit-source",
+                    "code": "mp",
+                    "equivalence": "equivalent"
+                }
+            ]
+        },
+        {
+            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "code": "",
+            "map": [
+                {
+                    "system": "http://hl7.org/fhir/admit-source",
+                    "code": "nursing",
+                    "equivalence": "equivalent"
+                }
+            ]
+        },
+        {
+            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "code": "",
+            "map": [
+                {
+                    "system": "http://hl7.org/fhir/admit-source",
+                    "code": "psych",
+                    "equivalence": "equivalent"
+                }
+            ]
+        },
+        {
+            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "code": "",
+            "map": [
+                {
+                    "system": "http://hl7.org/fhir/admit-source",
+                    "code": "rehab",
+                    "equivalence": "equivalent"
+                }
+            ]
+        },
+        {
+            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "code": "",
+            "map": [
+                {
+                    "system": "http://hl7.org/fhir/admit-source",
+                    "code": "other",
+                    "equivalence": "equivalent"
+                }
+            ]
+        }
+    ]
+}
+1 Physician referral 
+2 Clinic referral 
+3 HMO referral 
+5 Transfer from a skilled nursing facility 
+6 Transfer from another health care facility 
+8 Court/law enforcement 
+9 Information not available
+
