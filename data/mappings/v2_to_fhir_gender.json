@@ -16,40 +16,40 @@
     },
     "concept": [
         {
-            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "system": "http://hl7.org/fhir/v2/0001",
             "code": "A",
             "map": [
                 {
-                    "system": "http://hl7.org/fhir/vs/administrative-gender",
+                    "system": "http://hl7.org/fhir/v3/AdministrativeGender",
                     "code": "UN",
                     "equivalence": "equivalent"
                 }
             ]
         },
         {
-            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "system": "http://hl7.org/fhir/v2/0001",
             "code": "F",
             "map": [
                 {
-                    "system": "http://hl7.org/fhir/vs/administrative-gender",
+                    "system": "http://hl7.org/fhir/v3/AdministrativeGender",
                     "code": "F",
                     "equivalence": "equivalent"
                 }
             ]
         },
         {
-            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "system": "http://hl7.org/fhir/v2/0001",
             "code": "M",
             "map": [
                 {
-                    "system": "http://hl7.org/fhir/vs/administrative-gender",
+                    "system": "http://hl7.org/fhir/v3/AdministrativeGender",
                     "code": "M",
                     "equivalence": "equivalent"
                 }
             ]
         },
         {
-            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "system": "http://hl7.org/fhir/v2/0001",
             "code": "N",
             "map": [
                 {
@@ -60,7 +60,7 @@
             ]
         },
         {
-            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "system": "http://hl7.org/fhir/v2/0001",
             "code": "O",
             "map": [
                 {
@@ -71,11 +71,11 @@
             ]
         },
         {
-            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "system": "http://hl7.org/fhir/v2/0001",
             "code": "U",
             "map": [
                 {
-                    "system": "http://hl7.org/fhir/vs/administrative-gender",
+                    "system": "http://hl7.org/fhir/v3/NullFlavor",
                     "code": "UNK",
                     "equivalence": "equivalent"
                 }
