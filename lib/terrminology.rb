@@ -43,8 +43,6 @@ module Terrminology
   autoload :ValueSetLoader,          'terrminology/loaders/value_set_loader'
   autoload :MappingLoader,           'terrminology/loaders/mapping_loader'
 
-  autoload :Coding,                  'terrminology/models/coding'
-
   autoload :CodingBuilder,           'terrminology/builders/coding_builder'
 
   def self.api(*args)
