@@ -4,7 +4,7 @@
     "version": "20131211",
     "name": "v2/FHIR Admit Source Mapping",
     "publisher": "Wave Access",
-    "description": "A mapping between the V2 and FHIR Gender Value Sets",
+    "description": "A mapping between the V2 and FHIR Admit Source Value Sets",
     "status": "draft",
     "experimental": true,
     "date": "2013-12-11",
