@@ -10,6 +10,13 @@ module Terrminology
       @db = db || Sequel.connect(ENV['SEQUEL'] || 'postgres:///terrminology')
     end
 
+    def initialize_data
+      clear_value_sets!
+      clear_concept_maps!
+      load_all_value_sets
+      load_all_mappings
+    end
+
     def value_sets
       value_set_repository.all
     end
@@ -41,7 +48,7 @@ module Terrminology
     end
 
     def load_all_value_sets
-      ValueSetLoader.new(self).load_all_value_sets
+      ValueSetLoader.new(self).load_all
     end
 
     def clear_value_sets!
@@ -101,6 +108,10 @@ module Terrminology
 
     def load_concept_map(filename)
       MappingLoader.new(self).load(filename)
+    end
+
+    def load_all_concept_maps
+      MappingLoader.new(self).load_all
     end
 
     def map_concept(source_vs, source_code, target_vs)

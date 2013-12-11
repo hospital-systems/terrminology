@@ -134,4 +134,11 @@ describe Terrminology do
       @sys.value_sets.size.should == loaded
     end
   end
+
+  describe '#load_all_concept_maps' do
+    it 'should load all concept_maps' do
+      loaded = @sys.load_all_concept_maps[:loaded]
+      @sys.concept_maps.size.should == loaded
+    end
+  end
 end

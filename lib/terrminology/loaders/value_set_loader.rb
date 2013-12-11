@@ -12,7 +12,7 @@ module Terrminology
       @facade.create_value_set(get_json(filename))
     end
 
-    def load_all_value_sets
+    def load_all
       value_sets = json_files.reduce(ValueSetFiles.new) do |value_sets, filename|
         parsed_json = get_json(filename)
         if parsed_json['resourceType'] && parsed_json['resourceType'] == 'ValueSet'
