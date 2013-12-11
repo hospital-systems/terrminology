@@ -50,6 +50,10 @@ module Terrminology
       value_set_repository.destroy_all
     end
 
+    def find_define(define_id)
+      define_repository.find(define_id)
+    end
+
     def concepts(id_or_identifier, concepts_filter = nil)
       concept_repository.search(id_or_identifier, concepts_filter)
     end
@@ -60,7 +64,7 @@ module Terrminology
 
     def add_concept(id_or_identifier, *concept_attributes)
       value_set = find_value_set(id_or_identifier)
-      define    = find_define(value_set.identity)
+      define    = find_define_by_value_set_id(value_set.identity)
       ans = concept_attributes.map{ |attr| create_concept(attr.merge(define_id: define.identity)) }
 
       ans.size == 1 ? ans.first : ans
@@ -181,8 +185,8 @@ module Terrminology
       concept_repository.destroy_all
     end
 
-    def find_define(value_set_id)
-      define_repository.find(value_set_id)
+    def find_define_by_value_set_id(value_set_id)
+      define_repository.find_by_value_set_id(value_set_id)
     end
 
     def clear_composes!

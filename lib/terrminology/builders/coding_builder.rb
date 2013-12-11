@@ -5,16 +5,19 @@ module Terrminology
     end
 
     def build(target_value_set_identifier, target_code)
-      coding  = nil
+      coding  = {}
       concept = find_concept(target_value_set_identifier, target_code)
-      coding  = Coding.new(
-          system:    nil,
-          version:   nil,
-          code:      target_code,
-          display:   concept.display,
-          primary:   nil,
-          value_set: target_value_set_identifier
-      ) if concept
+      if concept
+        system = @facade.find_define(concept.define_id).system
+        coding  = {
+            system:    system,
+            version:   nil,
+            code:      target_code,
+            display:   concept.display,
+            primary:   nil,
+            value_set: target_value_set_identifier
+        }
+      end
       coding
 
       # system:    URI соответствующей code system

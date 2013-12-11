@@ -123,8 +123,8 @@ describe Terrminology do
 
       mapped         = @sys.map_concept(concept_map.source, source_concept.code, concept_map.target)
       mapped.should_not       be_nil
-      mapped.code.should   == map.code
-      mapped.value_set.should == concept_map.target
+      mapped[:code].should   == map[:code]
+      mapped[:value_set].should == concept_map.target
     end
   end
 
