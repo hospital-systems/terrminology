@@ -1,0 +1,66 @@
+{
+	"resourceType": "ConceptMap",
+	"identifier": "v2_address_type_to_fhir_address_use",
+	"version": "20131212",
+	"name": "v2 Address Type/FHIR Address Use Mapping",
+	"publisher": "Wave Access",
+	"description": "A mapping between the V2 Address Type and FHIR Address Use",
+	"status": "draft",
+	"experimental": true,
+	"date": "2013-12-12",
+	"source": {
+		"reference": "http://hl7.org/fhir/v2/vs/0190"
+	},
+	"target": {
+		"reference": "http://hl7.org/fhir/vs/address-use"
+	},
+	"concept": [
+		{
+		"system": "http://hl7.org/fhir/v2/0190",
+		"code": "H",
+		"map": [
+			{
+			"system": "http://hl7.org/fhir/address-use",
+			"code": "home",
+			"equivalence": "equivalent"
+		}
+		]
+	},
+	{
+		"system": "http://hl7.org/fhir/v2/0190",
+		"code": "O",
+		"map": [
+			{
+			"system": "http://hl7.org/fhir/address-use",
+			"code": "work",
+			"equivalence": "equivalent"
+		}
+		]
+	},
+	{
+		"system": "http://hl7.org/fhir/v2/0190",
+		"code": "C",
+		"map": [
+			{
+			"system": "http://hl7.org/fhir/address-use",
+			"code": "temp",
+			"equivalence": "equivalent"
+		}
+		]
+	},
+	{
+		"system": "http://hl7.org/fhir/v2/0190",
+		"code": "BA",
+		"map": [
+			{
+			"system": "http://hl7.org/fhir/address-use",
+			"code": "old",
+			"equivalence": "narrower"
+		}
+		]
+	},
+	],
+	"leftover_data": [
+		"",
+	]
+}
