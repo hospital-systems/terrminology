@@ -14,7 +14,7 @@ module Terrminology
       clear_value_sets!
       clear_concept_maps!
       load_all_value_sets
-      load_all_mappings
+      load_all_concept_maps
     end
 
     def value_sets
