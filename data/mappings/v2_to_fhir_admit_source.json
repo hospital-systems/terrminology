@@ -125,13 +125,41 @@
                 }
             ]
         }
-    ]
+    ],
+    "concept": [
+        {
+            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "code": "4",
+            "map": [
+                {
+                    "system": "http://hl7.org/fhir/admit-source",
+                    "code": "hosp-trans",
+                    "equivalence": "equivalent"
+                }
+            ]
+        },
+        {
+            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "code": "7",
+            "map": [
+                {
+                    "system": "http://hl7.org/fhir/admit-source",
+                    "code": "emd",
+                    "equivalence": "equivalent"
+                }
+            ]
+        }
+    ],
+    "leftover_data":
+        [
+            "1 Physician referral",
+            "2 Clinic referral",
+            "3 HMO referral",
+            "5 Transfer from a skilled nursing facility",
+            "6 Transfer from another health care facility",
+            "8 Court/law enforcement",
+            "9 Information not available"
+        ]
 }
-1 Physician referral 
-2 Clinic referral 
-3 HMO referral 
-5 Transfer from a skilled nursing facility 
-6 Transfer from another health care facility 
-8 Court/law enforcement 
-9 Information not available
+
 
