@@ -9,14 +9,14 @@
     "experimental": true,
     "date": "2013-12-11",
     "source": {
-        "reference": "http://hl7.org/fhir/v2/vs/0001"
+        "reference": "http://hl7.org/fhir/v2/vs/0023"
     },
     "target": {
         "reference": "http://hl7.org/fhir/vs/encounter-admit-source"
     },
     "concept": [
         {
-            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "system": "http://hl7.org/fhir/v2/0023",
             "code": "4",
             "map": [
                 {
@@ -27,7 +27,7 @@
             ]
         },
         {
-            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "system": "http://hl7.org/fhir/v2/0023",
             "code": "7",
             "map": [
                 {
@@ -38,7 +38,7 @@
             ]
         },
         {
-            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "system": "http://hl7.org/fhir/v2/0023",
             "code": "",
             "map": [
                 {
@@ -49,7 +49,7 @@
             ]
         },
         {
-            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "system": "http://hl7.org/fhir/v2/0023",
             "code": "",
             "map": [
                 {
@@ -60,7 +60,7 @@
             ]
         },
         {
-            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "system": "http://hl7.org/fhir/v2/0023",
             "code": "",
             "map": [
                 {
@@ -71,7 +71,7 @@
             ]
         },
         {
-            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "system": "http://hl7.org/fhir/v2/0023",
             "code": "",
             "map": [
                 {
@@ -82,7 +82,7 @@
             ]
         },
         {
-            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "system": "http://hl7.org/fhir/v2/0023",
             "code": "",
             "map": [
                 {
@@ -93,7 +93,7 @@
             ]
         },
         {
-            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "system": "http://hl7.org/fhir/v2/0023",
             "code": "",
             "map": [
                 {
@@ -104,7 +104,7 @@
             ]
         },
         {
-            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "system": "http://hl7.org/fhir/v2/0023",
             "code": "",
             "map": [
                 {
@@ -115,7 +115,7 @@
             ]
         },
         {
-            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "system": "http://hl7.org/fhir/v2/0023",
             "code": "",
             "map": [
                 {
@@ -128,7 +128,7 @@
     ],
     "concept": [
         {
-            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "system": "http://hl7.org/fhir/v2/0023",
             "code": "4",
             "map": [
                 {
@@ -139,7 +139,7 @@
             ]
         },
         {
-            "system": "http://hl7.org/fhir/v2/vs/0001",
+            "system": "http://hl7.org/fhir/v2/0023",
             "code": "7",
             "map": [
                 {
