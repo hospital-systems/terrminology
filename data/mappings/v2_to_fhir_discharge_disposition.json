@@ -1,0 +1,139 @@
+{
+	"resourceType": "ConceptMap",
+	"identifier": "v2_to_fhir_discharge_disposition",
+	"version": "20131212",
+	"name": "v2/FHIR Discharge Disposition Mapping",
+	"publisher": "Wave Access",
+	"description": "A mapping between the V2 and FHIR Discharge Disposition Value Sets",
+	"status": "draft",
+	"experimental": true,
+	"date": "2013-12-12",
+	"source": {
+		"reference": "http://hl7.org/fhir/v2/vs/0112"
+	},
+	"target": {
+		"reference": "http://hl7.org/fhir/vs/encounter-discharge-disposition"
+	},
+	"concept": [
+		{
+		"system": "http://hl7.org/fhir/v2/0112",
+		"code": "",
+		"map": [
+			{
+			"system": "http://hl7.org/fhir/discharge-disposition",
+			"code": "other-hcf",
+			"equivalence": "equivalent"
+		}
+		]
+	},
+	{
+		"system": "http://hl7.org/fhir/v2/0112",
+		"code": "",
+		"map": [
+			{
+			"system": "http://hl7.org/fhir/discharge-disposition",
+			"code": "hosp",
+			"equivalence": "equivalent"
+		}
+		]
+	},
+	{
+		"system": "http://hl7.org/fhir/v2/0112",
+		"code": "",
+		"map": [
+			{
+			"system": "http://hl7.org/fhir/discharge-disposition",
+			"code": "long",
+			"equivalence": "equivalent"
+		}
+		]
+	},
+	{
+		"system": "http://hl7.org/fhir/v2/0112",
+		"code": "",
+		"map": [
+			{
+			"system": "http://hl7.org/fhir/discharge-disposition",
+			"code": "aadvice",
+			"equivalence": "equivalent"
+		}
+		]
+	},
+	{
+		"system": "http://hl7.org/fhir/v2/0112",
+		"code": "",
+		"map": [
+			{
+			"system": "http://hl7.org/fhir/discharge-disposition",
+			"code": "exp",
+			"equivalence": "equivalent"
+		}
+		]
+	},
+	{
+		"system": "http://hl7.org/fhir/v2/0112",
+		"code": "",
+		"map": [
+			{
+			"system": "http://hl7.org/fhir/discharge-disposition",
+			"code": "psy",
+			"equivalence": "equivalent"
+		}
+		]
+	},
+	{
+		"system": "http://hl7.org/fhir/v2/0112",
+		"code": "",
+		"map": [
+			{
+			"system": "http://hl7.org/fhir/discharge-disposition",
+			"code": "rehab",
+			"equivalence": "equivalent"
+		}
+		]
+	},
+	{
+		"system": "http://hl7.org/fhir/v2/0112",
+		"code": "",
+		"map": [
+			{
+			"system": "http://hl7.org/fhir/discharge-disposition",
+			"code": "oth",
+			"equivalence": "equivalent"
+		}
+		]
+	}
+	],
+	"concept": [
+		{
+		"system": "http://hl7.org/fhir/v2/0112",
+		"code": "01",
+		"map": [
+			{
+			"system": "http://hl7.org/fhir/discharge-disposition",
+			"code": "home",
+			"equivalence": "equivalent"
+		}
+		]
+	}
+	],
+	"leftover_data": [
+		"01 Discharged to home or self care (routine discharge)",
+		"02 Discharged/transferred to another short term general hospital for inpatient care",
+		"03 Discharged/transferred to skilled nursing facility (SNF)",
+		"04 Discharged/transferred to an intermediate care facility (ICF)",
+		"05 Discharged/transferred to another type of institution for inpatient care or referred for outpatient services to another institution",
+		"06 Discharged/transferred to home under care of organized home health service organization",
+		"07 Left against medical advice or discontinued care",
+		"08 Discharged/transferred to home under care of Home IV provider",
+		"09 Admitted as an inpatient to this hospital",
+		"10 ... 19 Discharge to be defined at state level, if necessary",
+		"20 Expired (i.e. dead)",
+		"21 ... 29 Expired to be defined at state level, if necessary",
+		"30 Still patient or expected to return for outpatient services (i.e. still a patient)",
+		"31 ... 39 Still patient to be defined at state level, if necessary (i.e. still a patient)",
+		"40 Expired (i.e. died) at home",
+		"41 Expired (i.e. died) in a medical facility; e.g., hospital, SNF, ICF, or free standing hospice",
+		"42 Expired (i.e. died) - place unknown"
+	]
+}
