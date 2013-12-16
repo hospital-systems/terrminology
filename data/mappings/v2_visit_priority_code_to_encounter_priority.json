@@ -1,0 +1,76 @@
+{
+	"resourceType": "ConceptMap",
+	"identifier": "v2_visit_priority_code_to_encounter_priority",
+	"version": "20131216",
+	"name": "v2 Visit Priority Code/FHIR Encounter Priority Mapping",
+	"publisher": "Wave Access",
+	"description": "A mapping between the V2 Visit Priority Code and FHIR Encounter Priority",
+	"status": "draft",
+	"experimental": true,
+	"date": "2013-12-12",
+	"source": {
+		"reference": "http://hl7.org/fhir/v2/vs/0217"
+	},
+	"target": {
+		"reference": "http://hl7.org/fhir/vs/encounter-priority"
+	},
+	"concept": [
+		{
+		"system": "http://hl7.org/fhir/v2/0217",
+		"code": "0",
+		"map": [
+			{
+			"system": "http://hl7.org/fhir/encounter-priority",
+			"code": "imm",
+			"equivalence": "equivalent"
+		}
+		]
+	},
+	{
+		"system": "http://hl7.org/fhir/v2/0217",
+		"code": "0",
+		"map": [
+			{
+			"system": "http://hl7.org/fhir/encounter-priority",
+			"code": "s-urg",
+			"equivalence": "equivalent"
+		}
+		]
+	},
+	{
+		"system": "http://hl7.org/fhir/v2/0217",
+		"code": "0",
+		"map": [
+			{
+			"system": "http://hl7.org/fhir/encounter-priority",
+			"code": "no-urg",
+			"equivalence": "equivalent"
+		}
+		]
+	}
+	],
+	"concept": [
+		{
+		"system": "http://hl7.org/fhir/v2/0217",
+		"code": "1",
+		"map": [
+			{
+			"system": "http://hl7.org/fhir/encounter-priority",
+			"code": "emg",
+			"equivalence": "equivalent"
+		}
+		]
+	},
+	{
+		"system": "http://hl7.org/fhir/v2/0217",
+		"code": "2",
+		"map": [
+			{
+			"system": "http://hl7.org/fhir/encounter-priority",
+			"code": "urg",
+			"equivalence": "equivalent"
+		}
+		]
+	}
+	]
+}
