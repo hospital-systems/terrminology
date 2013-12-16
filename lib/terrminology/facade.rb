@@ -117,13 +117,13 @@ module Terrminology
     def map_concept(source_vs, source_code, target_vs)
       #TODO: what if there are several concept_maps for the given source and target?
       cm = find_concept_map(source_vs, target_vs)
-      return nil unless cm
+      return {} unless cm
 
       sc = source_concepts(cm.identity, code: source_code).first
-      return nil unless sc
+      return {} unless sc
 
       map = maps(sc.identity).first
-      return nil unless map
+      return {} unless map
 
       coding(target_vs, map.code)
     end
