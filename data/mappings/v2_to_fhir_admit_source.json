@@ -17,62 +17,7 @@
     "concept": [
         {
             "system": "http://hl7.org/fhir/v2/0023",
-            "code": "4",
-            "map": [
-                {
-                    "system": "http://hl7.org/fhir/admit-source",
-                    "code": "hosp-trans",
-                    "equivalence": "equivalent"
-                }
-            ]
-        },
-        {
-            "system": "http://hl7.org/fhir/v2/0023",
-            "code": "7",
-            "map": [
-                {
-                    "system": "http://hl7.org/fhir/admit-source",
-                    "code": "emd",
-                    "equivalence": "equivalent"
-                }
-            ]
-        },
-        {
-            "system": "http://hl7.org/fhir/v2/0023",
-            "code": "",
-            "map": [
-                {
-                    "system": "http://hl7.org/fhir/admit-source",
-                    "code": "outp",
-                    "equivalence": "equivalent"
-                }
-            ]
-        },
-        {
-            "system": "http://hl7.org/fhir/v2/0023",
-            "code": "",
-            "map": [
-                {
-                    "system": "http://hl7.org/fhir/admit-source",
-                    "code": "born",
-                    "equivalence": "equivalent"
-                }
-            ]
-        },
-        {
-            "system": "http://hl7.org/fhir/v2/0023",
-            "code": "",
-            "map": [
-                {
-                    "system": "http://hl7.org/fhir/admit-source",
-                    "code": "gp",
-                    "equivalence": "equivalent"
-                }
-            ]
-        },
-        {
-            "system": "http://hl7.org/fhir/v2/0023",
-            "code": "",
+            "code": "1",
             "map": [
                 {
                     "system": "http://hl7.org/fhir/admit-source",
@@ -83,50 +28,26 @@
         },
         {
             "system": "http://hl7.org/fhir/v2/0023",
-            "code": "",
+            "code": "2",
             "map": [
                 {
                     "system": "http://hl7.org/fhir/admit-source",
-                    "code": "nursing",
+                    "code": "outp",
                     "equivalence": "equivalent"
                 }
             ]
         },
         {
             "system": "http://hl7.org/fhir/v2/0023",
-            "code": "",
-            "map": [
-                {
-                    "system": "http://hl7.org/fhir/admit-source",
-                    "code": "psych",
-                    "equivalence": "equivalent"
-                }
-            ]
-        },
-        {
-            "system": "http://hl7.org/fhir/v2/0023",
-            "code": "",
-            "map": [
-                {
-                    "system": "http://hl7.org/fhir/admit-source",
-                    "code": "rehab",
-                    "equivalence": "equivalent"
-                }
-            ]
-        },
-        {
-            "system": "http://hl7.org/fhir/v2/0023",
-            "code": "",
+            "code": "3",
             "map": [
                 {
                     "system": "http://hl7.org/fhir/admit-source",
                     "code": "other",
-                    "equivalence": "equivalent"
+                    "equivalence": "wider"
                 }
             ]
-        }
-    ],
-    "concept": [
+        },
         {
             "system": "http://hl7.org/fhir/v2/0023",
             "code": "4",
@@ -140,6 +61,28 @@
         },
         {
             "system": "http://hl7.org/fhir/v2/0023",
+            "code": "5",
+            "map": [
+                {
+                    "system": "http://hl7.org/fhir/admit-source",
+                    "code": "nursing",
+                    "equivalence": "equivalent"
+                }
+            ]
+        },
+        {
+            "system": "http://hl7.org/fhir/v2/0023",
+            "code": "6",
+            "map": [
+                {
+                    "system": "http://hl7.org/fhir/admit-source",
+                    "code": "other",
+                    "equivalence": "wider"
+                }
+            ]
+        },
+        {
+            "system": "http://hl7.org/fhir/v2/0023",
             "code": "7",
             "map": [
                 {
@@ -148,16 +91,28 @@
                     "equivalence": "equivalent"
                 }
             ]
+        },
+        {
+            "system": "http://hl7.org/fhir/v2/0023",
+            "code": "8",
+            "map": [
+                {
+                    "system": "http://hl7.org/fhir/admit-source",
+                    "code": "other",
+                    "equivalence": "wider"
+                }
+            ]
+        },
+        {
+            "system": "http://hl7.org/fhir/v2/0023",
+            "code": "9",
+            "map": [
+                {
+                    "system": "http://hl7.org/fhir/admit-source",
+                    "code": "other",
+                    "equivalence": "wider"
+                }
+            ]
         }
-    ],
-    "leftover_data":
-        [
-            "1 Physician referral",
-            "2 Clinic referral",
-            "3 HMO referral",
-            "5 Transfer from a skilled nursing facility",
-            "6 Transfer from another health care facility",
-            "8 Court/law enforcement",
-            "9 Information not available"
-        ]
+    ]
 }
